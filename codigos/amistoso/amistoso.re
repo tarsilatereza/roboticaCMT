@@ -15,6 +15,11 @@ booleano sensorDois = verdadeiro
 booleano sensorTres = verdadeiro
 
 
+# RAMPA - INCLINAÇÃO 
+
+numero angulo = 0
+
+
 # booleano sensorAtuador = verdadeiro
 
 #tarefa levantarAtuador{
@@ -47,9 +52,27 @@ farei{
  # escrever(4, cor(4))
  # escrever(5, cor(5))
 
- escrevernumero(1, ultra(1))
- escrevernumero(2, ultra(2))
- escrevernumero(3, ultra(3))
+ angulo = inclinacao()
+ escrevernumero(1, angulo)
+
+ se ((angulo > 340) e (angulo < 359)) entao {
+  frente(100)
+  esperar(3000)
+
+
+
+
+
+  } senao {
+ 
+
+
+
+
+
+# escrevernumero(1, ultra(1))
+ #escrevernumero(2, ultra(2))
+ #escrevernumero(3, ultra(3))
 
  #teste
  sensorTres = temalgo(3, 5, 20)
@@ -138,11 +161,16 @@ farei{
         esperar(1000)
         direita(200)
         frente(130)
-      }
-
+      } senao se (esqInter == "VERDE") entao {
+        frente(100)
+        esperar(1000)
+        esquerda(200)
+        frente(130)
+      } 
     }
   }
 
+ }
 }
 
 }} enquanto( 1 > 0 )
