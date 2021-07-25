@@ -26,10 +26,37 @@ numero angulo = 0
 #  levantar(800)
 #}
 
+
+
+
+
+
+ tarefa desviar {
+ sensorTres = temalgo(3, 5, 32)
+
+
+    escrever(1, "obstáculo encontrado")
+    escrevernumero(2, ultra(3))
+    tras(100)
+    esperar(1000)
+    esquerda(200)
+    esperar(3000)
+    frente(200)
+    esperar(1600)
+    direita(300)
+    esperar(2000)
+    frente(100)
+    esperar(2000)
+    direita(200)
+    esperar(3000)
+ 
+}
+
+
 inicio
 
 
-farei{
+enquanto (1 > 0) farei {
 
 #sensorAtuador = temalgo(2,5,10)
 #se (sensorAtuador == falso) entao {
@@ -52,20 +79,12 @@ farei{
  # escrever(4, cor(4))
  # escrever(5, cor(5))
 
- angulo = inclinacao()
- escrevernumero(1, angulo)
-
- se ((angulo > 340) e (angulo < 359)) entao {
-  frente(100)
-  esperar(3000)
 
 
 
 
 
-  } senao {
- 
-
+  
 
 
 
@@ -75,41 +94,24 @@ farei{
  #escrevernumero(3, ultra(3))
 
  #teste
- sensorTres = temalgo(3, 5, 20)
- se (sensorTres == verdadeiro) entao {
-  escrever(3, "Obstáculo encontrado")
-  esquerda(300)
-  esperar(3000)
-  frente(100)
-  esperar(1000)
-  sensorUm = temalgo(1, 5, 10)
-  sensorDois = temalgo(2, 1, 10)
-  se (sensorDois == verdadeiro) entao{
-    escrever(2, "O 2 achou algo aqui")
-    frente(100)
-    esperar(1000)
-    } senao {
+ escrevernumero(2,luz(3))
 
+    se ((ultra(3) < 10) e (angulo == 0))  entao {
+    desviar()
+  } senao {
 
-      esperar(1300)
-      direita(300)
-      esperar(3000)
-      frente(100)
-      esperar(1000)
-      direita(200)
-      esperar(2000)
-    }
-    } senao {
 
       se ((esqInter == "BRANCO") e (dirInter == "BRANCO")) entao {
        frente(130)
      }
      se ((esqInter != "BRANCO") e (dirInter == "BRANCO")) entao {
        se (esqExter != "BRANCO") entao {
+        frente(100)
+        esperar(700)
          esquerda(300)
          esperar(1000)
          frente(130)
-       }
+               }
        senao {
          esquerda(200)
          esperar(1000)
@@ -117,6 +119,7 @@ farei{
      }
      se ((esqInter == "BRANCO") e (dirInter != "BRANCO")) entao {
       se (dirExter != "BRANCO") entao {
+       
        direita(300)
        esperar(1000)
        frente(130)
@@ -170,10 +173,10 @@ farei{
     }
   }
 
- }
+ 
 }
 
-}} enquanto( 1 > 0 )
+} }
 
 
 fim
