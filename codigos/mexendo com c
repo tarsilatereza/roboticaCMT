@@ -1,0 +1,24 @@
+#define pinLed 3
+#define button 0
+int controle = 0; 
+int ligado = 0;
+
+
+void setup() { 
+  Serial.begin (9600); // inicia a comunicação serial
+  pinMode (button, INPUT); // define o pino 
+  pinMode (pinLed, OUTPUT);
+} 
+
+void loop() {
+  ligado = digitalRead(button);
+  if (ligado = HIGH){
+  digitalWrite(pinLed, HIGH)
+}
+  
+ // for (sensorValue; sensorValue == 0; sensorValue--){
+ // digitalWrite(pinLed, LOW);
+ // delay(500);
+ // Serial.println ("desligando");
+ // }
+}
