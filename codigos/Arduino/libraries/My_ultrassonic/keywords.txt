@@ -1,0 +1,4 @@
+My_ultrassonic		KEYWORD1
+setPins		KEYWORD2
+getDistance_cm		KEYWORD2
+getDistance_m 		KEYWORD2
